@@ -2,16 +2,17 @@
 const express = require("express");
 
 const app = express();
-app.use(express.json());
-
+const PORT = 4000
 app.get("/", (req, res) => {
-  res.send("✅ Local server working now!");
+  res.status(200).json("✅ Local server working now!");
 });
 
 app.get("/test", (req, res) => {
-  res.send("✅ this is test route");
+  res.status(200).json("✅ this is test route");
 });
 
-app.listen(8000, () => {
-  console.log("Server running at http://localhost:8000");
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });
+
+module.exports = app;
